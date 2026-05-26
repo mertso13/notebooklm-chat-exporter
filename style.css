@@ -1,0 +1,24 @@
+.notebooklm-exporter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-right: 8px;
+  color: #e3e3e3;
+  transition: background-color 0.2s;
+}
+
+.notebooklm-exporter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.notebooklm-exporter-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}

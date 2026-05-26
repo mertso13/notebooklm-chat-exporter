@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "NotebookLM Chat Exporter",
+  "version": "1.0",
+  "description": "Export NotebookLM chat history to Markdown",
+  "content_scripts": [
+    {
+      "matches": ["https://notebooklm.google.com/*"],
+      "css": ["style.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "notebooklm-exporter@local",
+      "strict_min_version": "109.0"
+    }
+  }
+}
