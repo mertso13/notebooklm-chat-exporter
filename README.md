@@ -21,7 +21,7 @@ Features one-click export of your full chat history. Operates with zero external
 ### Chrome
 
 **Option 1: Chrome Web Store (Recommended)**
-- Download from [Chrome Web Store](#) *(Link coming soon)*
+- Download from [Chrome Web Store](https://chromewebstore.google.com/detail/notebooklm-chat-exporter/ffkhelaagbcaeidogobojfedgkhfchlg)
 
 **Option 2: Manual (For Developers)**
 1. Go to `chrome://extensions/`
