@@ -89,16 +89,21 @@ async function handleExportClick(event) {
   const button = event.currentTarget;
   button.style.opacity = '0.5';
   button.style.pointerEvents = 'none';
-  
-  await autoScrollToTop();
-  
-  const chatMarkdown = extractChatHistory();
-  if (chatMarkdown) {
-    downloadMarkdown(chatMarkdown, 'chat.md');
-  } else {
-    alert('No chat history found to export.');
+
+  try {
+    await autoScrollToTop();
+
+    const chatMarkdown = extractChatHistory();
+    if (chatMarkdown) {
+      downloadMarkdown(chatMarkdown, 'chat.md');
+    } else {
+      alert('No chat history found to export.');
+    }
+  } catch (err) {
+    console.error('[NotebookLM Exporter]', err);
+    alert('Export failed. Check the console for details.');
   }
-  
+
   button.style.opacity = '1';
   button.style.pointerEvents = 'auto';
 }
