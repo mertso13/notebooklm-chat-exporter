@@ -13,7 +13,8 @@ function extractChatHistory() {
   
   const now = new Date();
   const dateString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
-  let markdownContent = `# NotebookLM Chat Export\n*Exported at: ${dateString}*\n\n---\n\n`;
+  const parts = [];
+  parts.push(`# NotebookLM Chat Export\n*Exported at: ${dateString}*\n\n---\n\n`);
 
   chatPairs.forEach(pair => {
     const userMessageContainer = pair.querySelector('.from-user-container .message-text-content');
@@ -21,16 +22,16 @@ function extractChatHistory() {
 
     const userText = getCleanText(userMessageContainer);
     if (userText) {
-      markdownContent += `**User:**\n${userText}\n\n`;
+      parts.push(`**User:**\n${userText}\n\n`);
     }
 
     const aiText = getCleanText(aiMessageContainer);
     if (aiText) {
-      markdownContent += `**AI:**\n${aiText}\n\n`;
+      parts.push(`**AI:**\n${aiText}\n\n`);
     }
   });
 
-  return markdownContent.trim();
+  return parts.join('').trim();
 }
 
 function downloadMarkdown(content, filename) {
