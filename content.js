@@ -3,21 +3,9 @@ const EXPORT_BUTTON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
 
 function getCleanText(element) {
   if (!element) return '';
-  const citations = element.querySelectorAll('button.citation-marker, .citation-marker');
-  const originalDisplays = [];
-  
-  citations.forEach(c => {
-    originalDisplays.push(c.style.display);
-    c.style.display = 'none';
-  });
-  
-  const text = element.innerText.trim();
-  
-  citations.forEach((c, i) => {
-    c.style.display = originalDisplays[i];
-  });
-  
-  return text;
+  const clone = element.cloneNode(true);
+  clone.querySelectorAll('button.citation-marker, .citation-marker').forEach(c => c.remove());
+  return clone.innerText.trim();
 }
 
 function extractChatHistory() {
