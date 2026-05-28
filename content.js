@@ -1,3 +1,4 @@
+const MAX_SCROLL_ATTEMPTS = 20;
 const EXPORT_BUTTON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>`;
 
 function getCleanText(element) {
@@ -78,10 +79,12 @@ async function autoScrollToTop() {
 
   let previousHeight = scrollContainer.scrollHeight;
   let unchangedCount = 0;
+  let scrollAttempts = 0;
   
-  while (unchangedCount < 2) {
+  while (unchangedCount < 2 && scrollAttempts < MAX_SCROLL_ATTEMPTS) {
     scrollContainer.scrollTop = 0;
     await new Promise(resolve => setTimeout(resolve, 800));
+    scrollAttempts++;
     
     if (scrollContainer.scrollHeight > previousHeight) {
       previousHeight = scrollContainer.scrollHeight;
