@@ -11,7 +11,7 @@ Features one-click export of your full chat history. Operates with zero external
 ### Firefox
 
 **Option 1: Firefox Add-ons (Recommended)**
-- Download from [Mozilla Add-ons Store](#) *(Link coming soon)*
+- Download from [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/notebooklm-chat-exporter/)
 
 **Option 2: Manual (For Developers)**
 1. Go to `about:debugging#/runtime/this-firefox`
