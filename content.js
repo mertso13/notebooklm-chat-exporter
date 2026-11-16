@@ -117,9 +117,11 @@ async function handleExportClick(event) {
 }
 
 function injectExportButton() {
-  const configureButtonSpan = document.querySelector('span.chat-header-buttons');
-  
-  if (!configureButtonSpan) {
+  const headerButtonsContainer = document.querySelector(
+    'notebook-header div.notebook-header-buttons-container, div.notebook-header-buttons-container'
+  );
+
+  if (!headerButtonsContainer) {
     return;
   }
 
@@ -128,18 +130,23 @@ function injectExportButton() {
   }
 
   const exportButton = document.createElement('button');
-  const configureButton = configureButtonSpan.querySelector('.configure-settings-button');
-  
+  const referenceButton = headerButtonsContainer.querySelector('nb-button');
+  const labelSpan = document.createElement('span');
+
   exportButton.id = 'notebooklm-export-btn';
+  exportButton.type = 'button';
   exportButton.className = 'notebooklm-exporter-btn';
   exportButton.title = 'Export chat history';
+  exportButton.setAttribute('aria-label', 'Export chat history');
   exportButton.innerHTML = EXPORT_BUTTON_SVG;
+  labelSpan.textContent = 'Export chat history';
+  exportButton.appendChild(labelSpan);
   exportButton.addEventListener('click', handleExportClick);
 
-  if (configureButton) {
-    configureButtonSpan.insertBefore(exportButton, configureButton);
+  if (referenceButton) {
+    headerButtonsContainer.insertBefore(exportButton, referenceButton);
   } else {
-    configureButtonSpan.prepend(exportButton);
+    headerButtonsContainer.prepend(exportButton);
   }
 }
 
@@ -157,3 +164,5 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+
+injectExportButton();

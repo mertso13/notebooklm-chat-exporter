@@ -2,23 +2,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(128, 128, 128, 0.35);
   background: transparent;
   cursor: pointer;
-  margin-right: 8px;
-  color: #e3e3e3;
+  margin: 0 4px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
   transition: background-color 0.2s;
 }
 
 .notebooklm-exporter-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(128, 128, 128, 0.14);
 }
 
 .notebooklm-exporter-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
   fill: currentColor;
 }
